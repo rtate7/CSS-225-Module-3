@@ -7,38 +7,27 @@
 
 # track whether a successful caclulation has been performed using the 
 # boolean variable done
-valid_number_entered = False
-
-error_message = "Invalid input. You must enter valid numbers greater than zero."
-
-# keep trying to get valid input until calculation is complete
-while not valid_number_entered:
-  miles = input("Please enter the number of miles driven: ")
-  
-  # use try/except statement to continue with gallons only if user enters a number
-  # for miles
-  try: 
-    float(miles)
-    valid_number_entered = True
-  except:
-    print(error_message)
-
-  if valid_number_entered:
-    # set valid_number_entered back to false for next check
-    valid_number_entered = False
-    gallons = input("Please enter the gallons: ")
-
-    # use try/except statement to continue with calculation only if user enters a number
-    try:
-      # by trying to convert radius to a float, we can tell if it's a numeric value
-      # also use round() to limit float values to a max of 2 digits after decimal
-      mpg = round(float(miles) / float(gallons), 2)
-
-      # set valid_number_entered to true sice calculation is successfully completed
+def get_valid_float(input_message, error_message):
+  valid_number_entered = False
+  while not valid_number_entered:
+    user_value = input(input_message)
+    try: 
+      float(user_value) != 0
       valid_number_entered = True
     except:
       print(error_message)
-      
+  return float(user_value)
+
+error_message = "Invalid input. You must enter valid numbers greater than zero."
+
+miles_input_string = "Please enter the number of miles driven: "
+miles = get_valid_float(miles_input_string, error_message)
+
+gallons_input_string = "Please enter the gallons: "
+gallons = get_valid_float(gallons_input_string, error_message)
+
+mpg = round(miles / gallons, 2)
+
 print("You've travelled " +
   str(miles) + 
   " and used " + 
