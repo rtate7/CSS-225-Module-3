@@ -5,26 +5,25 @@
 # This program asks the user for a radius, calculates the area
 # of a circle with that radius, and displays that area.
 
+def get_valid_float(input_message, error_message):
+  valid_number_entered = False
+  while not valid_number_entered:
+    user_value = input(input_message)
+    try: 
+      float(user_value)
+      valid_number_entered = True
+    except:
+      print(error_message)
+  return float(user_value)
+
 # need to import math so we can use math.pi
 import math
 
-# track whether a successful caclulation has been performed using the 
-# boolean variable done
-done = False
+input_message = "Please enter a radius: "
+error_message = "Invalid input. You must enter a number."
 
-# keep trying to get valid input until calculation is complete
-while not done:
-  radius = input("Please enter a radius: ")
+radius = get_valid_float(input_message, error_message)
 
-  # use try/except statement to continue with calculation only if user enters a number
-  try:
-    # by trying to convert radius to a float, we can tell if it's a numeric value
-    float(radius)
-
-    area = math.pi * float(radius)**2
-    print("The area of a circle with radius: " + radius + " is " + str(area) + ".")
-
-    # set done to true sice calculation is successfully completed
-    done = True
-  except:
-    print("Invalid input. You must enter a number.")
+# calculate area rounded to 2 decimal places
+area = round(math.pi * radius**2, 2)
+print("The area of a circle with radius: " + str(radius) + " is " + str(area) + ".")
