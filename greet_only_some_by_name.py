@@ -1,7 +1,8 @@
 # Bob Tate
 # 1/21/21
 #
-# This program asks the user for tehir name and greets them with their name.
+# This program asks the user for their name and greets them with their name
+# only if the user is either me (Bob Tate) or my professor (Dr. Tovar).
 
 # Store accepted names in a constant array (list)
 ACCEPTED_NAMES = [
