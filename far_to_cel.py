@@ -5,23 +5,22 @@
 # This program asks the user for a temperature in Fahrenheit and
 # converts to Celsius.
 
-# track whether a successful caclulation has been performed using the 
-# boolean variable done
-valid_number_entered = False
+def get_valid_float(input_message, error_message):
+  valid_number_entered = False
+  while not valid_number_entered:
+    user_value = input(input_message)
+    try: 
+      float(user_value)
+      valid_number_entered = True
+    except:
+      print(error_message)
+  return float(user_value)
 
 error_message = "Invalid input. You must enter a valid number."
-
-# keep trying to get valid input until calculation is complete
-while not valid_number_entered:
-  fahrenheit = input("Please enter the temperature in degrees Fahrenheit: ")
+input_message = "Please enter the temperature in degrees Fahrenheit: "
+fahrenheit = get_valid_float(input_message, error_message)
+celsius = (fahrenheit - 32) * 5.0/9.0
   
-  # use try/except statement to continue with gallons only if user enters a number
-  # for miles
-  try: 
-    celsius = (float(fahrenheit) - 32) * 5.0/9.0
-    valid_number_entered = True
-  except:
-    print(error_message)
-      
 # display the result of the calculation rounded to 2 decimals
 print(str(fahrenheit) + "F is the same as " + str(round(celsius, 2)) + "C")
+
