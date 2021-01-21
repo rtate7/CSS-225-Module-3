@@ -1,6 +1,7 @@
 # Bob Tate
 # 1/21/21
 #
+# Solution to Problem 5
 # This program asks the user for a number of miles driven and a number
 # of gallons used and outputs the efficiency in mpg.
 
@@ -26,7 +27,7 @@ while not valid_number_entered:
     # set valid_number_entered back to false for next check
     valid_number_entered = False
     gallons = input("Please enter the gallons: ")
-    
+
     # use try/except statement to continue with calculation only if user enters a number
     try:
       # by trying to convert radius to a float, we can tell if it's a numeric value

@@ -1,6 +1,7 @@
 # Bob Tate
 # 1/21/21
 #
+# Solution to Problem 6
 # This program asks the user for a temperature in Fahrenheit and
 # converts to Celsius.
 

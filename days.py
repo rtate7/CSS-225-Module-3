@@ -1,6 +1,7 @@
 # Bob Tate
 # 1/21/21
 #
+# Solution to Problem 7
 # This program gets a day from the user where day 0 is Sunday
 # and day 6 is Saturday. The program then gets a length of stay
 # in days from the user and determines what day of the week the 
